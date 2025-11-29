@@ -16,7 +16,7 @@
     document.getElementById("loginBtn").addEventListener("click",()=>{
         const email=document.getElementById("email").value;
         const password=document.getElementById("password").value;
-        if(email === " admin@gmail.com" && pass === "admin1234"){
+        if(email === "admin@gmail.com" && pass === "admin1234"){
             alert("Login success");
             window.location.href = "admin.html";
 
@@ -24,9 +24,5 @@
             alert("Wrong email or password")
         }
     })
-    let loginBtn = document.getElementById("loginBtn");
-    loginBtn.addEventListener("click",()=>){
-        window.location.href="admin.html"
-    }
 </script>
 </html>
