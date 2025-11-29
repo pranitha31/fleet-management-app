@@ -8,21 +8,23 @@
 <body>
     <h2>Fleet Management Login</h2>
     <input type="email" id="email" placeholder="Enter emai"><br><br>
-    <input type="password" id="password" placeholder="Enter password">
+    <input type="pass" id="password" placeholder="Enter password">
     <button id="loginBtn">Login</button>
 
 </body>
 <script>
-    document.getElementById("loginBtn").addEventListener("click",()=>{
-        const email=document.getElementById("email").value;
-        const password=document.getElementById("password").value;
-        if(email === "admin@gmail.com" && pass === "admin1234"){
+    document.getElementById("loginBtn").addEventListener("click",function ()=>{
+        let  email=document.getElementById("email").value;
+        let password=document.getElementById("pass").value;
+        let validEmail = "admin@gmail.com";
+        let validPass = "admin1234";
+        if(email === validEmail && pass === validPass){
             alert("Login success");
             window.location.href = "admin.html";
 
         }else{
             alert("Wrong email or password")
         }
-    })
+    });
 </script>
 </html>
