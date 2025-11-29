@@ -1,45 +1,44 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="navbar">
-        <h3>Fleet Management Admin</h3>
+      <h3>Fleet Management Admin</h3>
     </div>
     <div class="sidebar">
-        <h3>Add Fleet</h3>
-        <label>Reg No of Vegicle</label>
-        <input type="text" id="reg">
+      <h3>Add Fleet</h3>
+      <label>Reg No of Vegicle</label>
+      <input type="text" id="reg" />
 
-        <label>Category</label>
-        <select id="category">
-            <option value="">Select</option>
-            <option value="Auto">Auto</option>
-            <option value="Car">Car</option>
-            <option value="Truck">Truck</option>
-            <option value="Bus">Bus</option>
-        </select>
+      <label>Category</label>
+      <select id="category">
+        <option value="">Select</option>
+        <option value="Auto">Auto</option>
+        <option value="Car">Car</option>
+        <option value="Truck">Truck</option>
+        <option value="Bus">Bus</option>
+      </select>
 
-        <label>Driver Name</label>
-        <input type="text" id="driver" placeholder="Driver Name" required><br>
+      <label>Driver Name</label>
+      <input type="text" id="driver" placeholder="Driver Name" required /><br />
 
-        <label>Is Available</label>
-        <select id="avalability">
-            <option value="">Select</option>
-            <option value="Available">Available</option>
-            <option value="Unavailable">Unavailable</option>
-
-        </select>
-        <button id="addBtnFleeBtn">Add Fleet</button>
+      <label>Is Available</label>
+      <select id="avalability">
+        <option value="">Select</option>
+        <option value="Available">Available</option>
+        <option value="Unavailable">Unavailable</option>
+      </select>
+      <button id="addBtnFleeBtn">Add Fleet</button>
     </div>
-    <div class="main" id="mainArea"></div> 
-    <h2>Fleet List </h2>
+    <div class="main" id="mainArea"></div>
+    <h2>Fleet List</h2>
     <div id="fleetList" class="fleet-container"></div>
-</body>
-<script>
+  </body>
+  <script>
     const fleetArr =[];
     const imgeURL ="https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png";
     document.getElementById("addfleetBtn").addEventListener("click", ()=>{
@@ -61,24 +60,30 @@
         };
         fleetArr.push(obj);
         renderCards(fleetArr);
-        let card = document.createElement("div");
-        card.className = "card";
+        document.getElementById("reg").value="";
+        document.getElementById("category").value="";
+        document.getElementById("driver").value="";
+        document.getElementById("avalability").value="";
 
-        card.innerHTML =`
+    });
+    function renderCards(data){
+        let container = document.getElementById("fleetList");
+        container.innerHTML="";
+
+        data.forEach((iteam, index)=>{
+            let card = document.createElement("div");
+            card.className = "card";
+
+             card.innerHTML =`
         <h4>${reg}</h4>
         <p><b>Category:</b> ${cat}</p>
         <p><b>Driver:</b> ${driver}</p>
         <p><b>Status:</b> ${Status}</p>
         `;
         document.getElementById("mainArea").appendChild(card);
+        container.append(card);
 
-        document.getElementById("reg").value="";
-        document.getElementById("category").value="";
-        document.getElementById("driver").value="";
-        document.getElementById("avalability").value="";
-
-
-
-    });
-</script>
+        });
+    }
+  </script>
 </html>
