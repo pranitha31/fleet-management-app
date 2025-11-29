@@ -24,7 +24,7 @@
         </select>
 
         <label>Driver Name</label>
-        <input type="text" id="driver">
+        <input type="text" id="driver" placeholder="Driver Name" required><br>
 
         <label>Is Available</label>
         <select id="avalability">
@@ -33,12 +33,16 @@
             <option value="Unavailable">Unavailable</option>
 
         </select>
-        <button id="addBtn">Add Fleet</button>
+        <button id="addBtnFleeBtn">Add Fleet</button>
     </div>
-    <div class="main" id="mainArea"></div>
+    <div class="main" id="mainArea"></div> 
+    <h2>Fleet List </h2>
+    <div id="fleetList" class="fleet-container"></div>
 </body>
 <script>
-    document.getElementById("adminBtn").addEventListener("click",()=>{
+    const fleetArr =[];
+    const imgeURL ="https://coding-platform.s3.amazonaws.com/dev/lms/tickets/5e80fcb6-3f8e-480c-945b-30a5359eb40e/JNmYjkVr3WOjsrbu.png";
+    document.getElementById("addfleetBtn").addEventListener("click", ()=>{
         let reg = document.getElementById("reg").value;
         let cat = document.getElementById("category").value;
         let driver = document.getElementById("driver").value;
@@ -48,6 +52,15 @@
             alert("Please fill all fiels");
             return
         }
+        let obj ={
+            reg,
+            category,
+            driver,
+            availability,
+            Image:imgURL
+        };
+        fleetArr.push(obj);
+        renderCards(fleetArr);
         let card = document.createElement("div");
         card.className = "card";
 
@@ -63,6 +76,7 @@
         document.getElementById("category").value="";
         document.getElementById("driver").value="";
         document.getElementById("avalability").value="";
+
 
 
     });

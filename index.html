@@ -1,30 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <h2>Fleet Management Login</h2>
-    <input type="email" id="email" placeholder="Enter emai"><br><br>
-    <input type="pass" id="password" placeholder="Enter password">
-    <button id="loginBtn">Login</button>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Flee Management</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: antiquewhite;
+            display: flex;
 
-</body>
-<script>
-    document.getElementById("loginBtn").addEventListener("click",function ()=>{
-        let  email=document.getElementById("email").value;
-        let password=document.getElementById("pass").value;
-        let validEmail = "admin@gmail.com";
-        let validPass = "admin1234";
-        if(email === validEmail && pass === validPass){
-            alert("Login success");
-            window.location.href = "admin.html";
-
-        }else{
-            alert("Wrong email or password")
         }
+        button{
+            width: 270px;
+            padding: 10px;
+            font-size: 18px;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+    </style>
+  </head>
+  <body>
+    <h2>Fleet Management Login</h2>
+    <input type="email" id="email" placeholder="Enter emai" /><br /><br />
+    <input type="password" id="password" placeholder="Enter password" />
+    <button id="loginBtn">Login</button>
+  </body>
+  <script>
+    document.getElementById("loginBtn").addEventListener("click", () => {
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("pass").value;
+      let validEmail = "admin@gmail.com";
+      let validPass = "admin1234";
+      if (email === validEmail && pass === validPass) {
+        alert("Login success");
+        window.location.href = "admin.html";
+      } else {
+        alert("Wrong email or password");
+      }
     });
-</script>
+  </script>
 </html>
