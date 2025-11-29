@@ -3,7 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Adminpage</title>
+    <style>
+        .sidebar{
+            width: 250px;
+            padding: 20px;
+            margin-top: 60px;
+            height: 10vh;
+        }
+        .main{
+            flex: 1;
+            padding: 20px;
+            height: 16px;
+        }
+        .fleet-container{
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            box-shadow:  0 0 10px;
+            text-align: center;
+        }
+    </style>
   </head>
   <body>
     <div class="navbar">
@@ -87,6 +106,13 @@
     }
     function deleteFleet(i){
         fleetArr.splice(i,1);
+    }
+    function updateDriver(i){
+        let newDriver  = promot("Enter new driver name");
+        if(newDriver){
+            fleetArr[i],driver=newDriver;
+            renderCards(fleetArr);
+        }
     }
   </script>
 </html>
